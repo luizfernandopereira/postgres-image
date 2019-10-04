@@ -61,5 +61,4 @@ EOF
         exit $?
     fi
 fi
-/usr/bin/postmaster -D ${PGDATA} &
-exit 0
+/usr/bin/postmaster -D ${PGDATA}
