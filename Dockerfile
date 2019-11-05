@@ -6,6 +6,9 @@ RUN dnf install postgresql-server \
         procps-ng -y \
     && dnf clean all -y
 
+ENV TIMEZONE=America/Sao_Paulo
+RUN ln -snf /usr/share/zoneinfo/$TIMEZONE /etc/localtime && echo $TIMEZONE > /etc/timezone
+
 ADD "entrypoint.sh" "/entrypoint.sh"
 RUN chmod +x /entrypoint.sh
 
