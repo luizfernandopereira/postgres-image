@@ -3,7 +3,8 @@ LABEL maitainer="Luiz Fernando Pereira <luizfernandopereira@outlook.com.br>" \
       company="Alternativa Informática"
 
 RUN dnf install postgresql-server \
-        procps-ng -y \
+        procps-ng \
+        postgresql-contrib -y \
     && dnf clean all -y
 
 ENV TIMEZONE=America/Sao_Paulo
