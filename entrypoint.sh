@@ -9,7 +9,8 @@ then
 
     if [ $? -eq 0 ]
     then
-        sed -i "s/#listen_addresses = 'localhost'/listen_addresses = '*'/" /var/lib/pgsql/data/postgresql.conf
+        rm -f /var/lib/pgsql/data/postgresql.conf
+        mv /postgresql.conf /var/lib/pgsql/data/postgresql.conf
 
         cat > "/var/lib/pgsql/data/pg_hba.conf" <<EOF
         # PostgreSQL Client Authentication Configuration File

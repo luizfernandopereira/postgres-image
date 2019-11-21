@@ -13,7 +13,7 @@ RUN ln -snf /usr/share/zoneinfo/$TIMEZONE /etc/localtime && echo $TIMEZONE > /et
 ADD "entrypoint.sh" "/entrypoint.sh"
 RUN chmod +x /entrypoint.sh
 
-COPY postgresql.conf /var/lib/pgsql/data/postgresql.conf
+COPY postgresql.conf /postgresql.conf
 
 RUN mkdir -p /var/lib/pgsql/data && chown 26:26 /var/lib/pgsql/data
 
