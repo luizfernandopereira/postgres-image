@@ -1,6 +1,5 @@
 FROM fedora
-LABEL maitainer="Luiz Fernando Pereira <luizfernandopereira@outlook.com.br>" \
-      company="Alternativa Informática"
+LABEL maitainer="Luiz Fernando Pereira <luizfernandopereira@outlook.com.br>"
 
 RUN dnf install postgresql-server \
         procps-ng \
