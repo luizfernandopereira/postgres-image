@@ -6,11 +6,12 @@ RUN dnf install postgresql-server \
         postgresql-contrib -y \
     && dnf clean all -y
 
-ENV TIMEZONE=America/Sao_Paulo
-RUN ln -snf /usr/share/zoneinfo/$TIMEZONE /etc/localtime && echo $TIMEZONE > /etc/timezone
-
 ADD "entrypoint.sh" "/entrypoint.sh"
 RUN chmod +x /entrypoint.sh
+
+RUN usermod -aG wheel postgres
+
+RUN sudo sed -e 's/^%wheel/#%wheel/g' -e 's/^# %wheel/%wheel/g' -i /etc/sudoers
 
 COPY postgresql.conf /postgresql.conf
 
